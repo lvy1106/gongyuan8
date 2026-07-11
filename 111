@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>公元·感光工业探秘</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+KuaiLe&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <div id="screen-flash" class="screen-flash"></div>
+        <!-- 剧情引入页 -->
+        <div id="intro-page" class="page active">
+            <div class="paper-container">
+                <div class="paper-texture"></div>
+                <div class="paper-content">
+                    <div class="intro-logo">
+                        <svg class="logo-svg" viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <filter id="logoShadow" x="-5%" y="-5%" width="110%" height="110%">
+                                    <feDropShadow dx="2" dy="4" stdDeviation="5" flood-color="#8b0000" flood-opacity="0.25"/>
+                                </filter>
+                            </defs>
+                            
+                            <g filter="url(#logoShadow)">
+                                <!-- 底部厚度 -->
+                                <path d="M 60 245 L 320 245 Q 345 245 358 230 Q 365 222 372 210 L 388 185 Q 378 200 370 212 Q 360 228 345 238 Q 330 245 310 245 L 70 245 Q 45 245 32 230 Q 25 222 18 210 L 2 185 Q 12 200 20 212 Q 30 228 45 238 Q 50 242 60 245 Z" 
+                                      fill="#c41e1e" opacity="0.85"/>
+                                
+                                <!-- 右侧厚度 -->
+                                <path d="M 350 45 L 372 30 L 388 185 L 372 210 L 355 215 Z" 
+                                      fill="#b71c1c" opacity="0.75"/>
+                                
+                                <!-- 印章主体 -->
+                                <path d="M 55 40 L 325 40 Q 350 40 362 55 Q 370 68 370 85 L 370 180 Q 370 200 355 215 Q 340 225 320 225 L 60 225 Q 40 225 25 210 Q 15 195 15 175 L 15 90 Q 15 65 28 50 Q 40 40 55 40 Z" 
+                                      fill="#d32626"/>
+                                
+                                <!-- 底部斜条纹 -->
+                                <g opacity="0.92">
+                                    <line x1="18" y1="228" x2="52" y2="205" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="42" y1="228" x2="76" y2="205" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="66" y1="228" x2="100" y2="205" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="90" y1="228" x2="124" y2="205" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="114" y1="228" x2="148" y2="205" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="138" y1="228" x2="172" y2="205" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="162" y1="228" x2="196" y2="205" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="186" y1="228" x2="220" y2="205" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="210" y1="228" x2="244" y2="205" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="234" y1="228" x2="268" y2="205" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="258" y1="228" x2="292" y2="205" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="282" y1="228" x2="316" y2="205" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="306" y1="228" x2="340" y2="205" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="330" y1="228" x2="364" y2="205" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="354" y1="228" x2="378" y2="212" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                </g>
+                                
+                                <!-- 右侧斜条纹 -->
+                                <g opacity="0.92">
+                                    <line x1="350" y1="42" x2="373" y2="27" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="350" y1="67" x2="373" y2="52" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="350" y1="92" x2="373" y2="77" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="350" y1="117" x2="373" y2="102" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="350" y1="142" x2="373" y2="127" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="350" y1="167" x2="373" y2="152" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="350" y1="192" x2="373" y2="177" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="350" y1="215" x2="373" y2="200" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                </g>
+                                
+                                <!-- "公元" 行楷字体 -->
+                                <text x="115" y="165" 
+                                      font-family="'Ma Shan Zheng', 'STKaiti', 'KaiTi', '楷体', cursive" 
+                                      font-size="110px" 
+                                      fill="#ffffff" 
+                                      text-anchor="middle"
+                                      font-weight="bold">公</text>
+                                <text x="270" y="165" 
+                                      font-family="'Ma Shan Zheng', 'STKaiti', 'KaiTi', '楷体', cursive" 
+                                      font-size="110px" 
+                                      fill="#ffffff" 
+                                      text-anchor="middle"
+                                      font-weight="bold">元</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <h1 class="intro-title">公元一九四九</h1>
+                    <div class="intro-divider">
+                        <span class="deco-line left"></span>
+                        <span class="deco-dot">◆</span>
+                        <span class="deco-line right"></span>
+                    </div>
+                    <div class="intro-text" id="intro-text">
+                        <p>1949年春，汕头德兴路86号。</p>
+                        <p>一位名叫林希之的年轻化学家，正为打破欧美感光技术垄断而日夜奋战。</p>
+                        <p>他缺钱、缺设备、缺人手……但他坚信：<span class="emphasis">"中国必须有自己的感光材料！"</span></p>
+                        <p>今天，你穿越时空，成为了他的助手。</p>
+                        <p>请完成一系列使命，见证中国感光工业从零到一的奇迹——</p>
+                    </div>
+                    <div class="intro-signature">
+                        <span class="signature-text">汕头工业博物馆</span>
+                    </div>
+                </div>
+                <button id="start-btn" class="stamp-btn">
+                    <span class="stamp-text">开始闯关</span>
+                    <span class="stamp-border"></span>
+                </button>
+            </div>
+            <div class="ink-splash ink-1"></div>
+            <div class="ink-splash ink-2"></div>
+        </div>
+
+        <!-- 板块总览页 -->
+        <div id="overview-page" class="page">
+            <div class="overview-container">
+                <div class="overview-header">
+                    <h2>汕头工业博物馆</h2>
+                    <h3>公元感光工业探秘</h3>
+                    <p>穿越时空，成为林希之的助手<br>见证中国感光工业从零到一的奇迹</p>
+                </div>
+                <div class="overview-sections">
+                    <div class="overview-card section-1-card" data-section="1">
+                        <div class="overview-card-icon">🔥</div>
+                        <div class="overview-card-info">
+                            <h4>第一板块</h4>
+                            <h3>光辉起点 · 工业摇篮</h3>
+                            <p>📍 第一馆·历史展厅（1层）</p>
+                            <div class="overview-card-badges">
+                                <span>🚶</span><span>💡</span>
+                            </div>
+                            <div class="overview-card-status">
+                                <span class="status-text">2枚徽章</span>
+                                <span class="status-dot"></span>
+                            </div>
+                        </div>
+                        <div class="overview-card-arrow">→</div>
+                    </div>
+                    <div class="overview-card section-2-card locked" data-section="2">
+                        <div class="overview-card-icon">🔧</div>
+                        <div class="overview-card-info">
+                            <h4>第二板块</h4>
+                            <h3>匠心传承 · 技艺追踪</h3>
+                            <p>📍 第一馆·历史展厅（1-2层）</p>
+                            <div class="overview-card-badges">
+                                <span>🥇</span><span>🏭</span><span>🧪</span>
+                            </div>
+                            <div class="overview-card-status">
+                                <span class="status-text">3枚徽章</span>
+                                <span class="status-dot locked">🔒</span>
+                            </div>
+                        </div>
+                        <div class="overview-card-arrow">→</div>
+                    </div>
+                    <div class="overview-card section-3-card locked" data-section="3">
+                        <div class="overview-card-icon">⚙️</div>
+                        <div class="overview-card-info">
+                            <h4>第三板块</h4>
+                            <h3>智慧工厂 · 挑战闯关</h3>
+                            <p>📍 第二馆（设备展区）</p>
+                            <div class="overview-card-badges">
+                                <span>🧩</span><span>⚗️</span><span>⚡</span>
+                            </div>
+                            <div class="overview-card-status">
+                                <span class="status-text">3枚徽章</span>
+                                <span class="status-dot locked">🔒</span>
+                            </div>
+                        </div>
+                        <div class="overview-card-arrow">→</div>
+                    </div>
+                </div>
+                <div class="overview-footer">
+                    <p>集齐全部8枚徽章，解锁专属荣誉证书！</p>
+                </div>
+            </div>
+            <div class="ink-splash ink-1"></div>
+            <div class="ink-splash ink-2"></div>
+        </div>
+
+        <!-- 主游戏页面 -->
+        <div id="game-page" class="page">
+            <header class="game-header">
+                <div class="header-title" id="section-title">光辉起点 · 工业摇篮</div>
+                <div class="badge-progress">
+                    <span class="badge-icon">🏅</span>
+                    <span id="badge-count">0</span>/8
+                </div>
+            </header>
+
+            <main class="game-content">
+                <!-- 板块一 -->
+                <section id="section-1" class="section active">
+                    <div class="section-banner banner-1">
+                        <div class="banner-overlay">
+                            <h2>第一板块</h2>
+                            <h3>光辉起点 · 工业摇篮</h3>
+                            <p>📍 第一馆·历史展厅（1层）</p>
+                        </div>
+                    </div>
+                    <div class="level-list">
+                        <div class="level-card" data-level="1">
+                            <div class="level-num">01</div>
+                            <div class="level-info">
+                                <h4>重走创业路</h4>
+                                <p>寻找林希之的实验室</p>
+                                <span class="level-tag">拍照打卡</span>
+                            </div>
+                            <div class="level-status">
+                                <span class="status-icon locked">🔒</span>
+                            </div>
+                        </div>
+                        <div class="level-card" data-level="2">
+                            <div class="level-num">02</div>
+                            <div class="level-info">
+                                <h4>科研微光</h4>
+                                <p>76次试验的坚持</p>
+                                <span class="level-tag">知识问答</span>
+                            </div>
+                            <div class="level-status">
+                                <span class="status-icon locked">🔒</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-reward">
+                        <div class="section-sparks" id="sparks-1"></div>
+                        <div class="reward-badge" id="reward-badge-1">
+                            <span class="reward-icon">🔥</span>
+                            <span class="reward-name">公元星火</span>
+                        </div>
+                        <p class="reward-desc">集齐2枚徽章解锁</p>
+                        <div class="section-level-badges" style="margin-top:10px; display:flex; justify-content:center; gap:10px;">
+                            <span style="font-size:1.5rem; opacity:0.3;" id="s1-badge-1">🚶</span>
+                            <span style="font-size:1.5rem; opacity:0.3;" id="s1-badge-2">💡</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 板块二 -->
+                <section id="section-2" class="section locked-section">
+                    <div class="section-banner banner-2">
+                        <div class="banner-overlay">
+                            <h2>第二板块</h2>
+                            <h3>匠心传承 · 技艺追踪</h3>
+                            <p>📍 第一馆·历史展厅（1-2层）</p>
+                        </div>
+                        <div class="section-lock">🔒 需完成板块一</div>
+                    </div>
+                    <div class="level-list">
+                        <div class="level-card locked" data-level="3">
+                            <div class="level-num">03</div>
+                            <div class="level-info">
+                                <h4>寻找第一</h4>
+                                <p>找寻三件珍贵展品</p>
+                                <span class="level-tag">展品打卡</span>
+                            </div>
+                            <div class="level-status">
+                                <span class="status-icon locked">🔒</span>
+                            </div>
+                        </div>
+                        <div class="level-card locked" data-level="4">
+                            <div class="level-num">04</div>
+                            <div class="level-info">
+                                <h4>厂房印记</h4>
+                                <p>厂址变迁的故事</p>
+                                <span class="level-tag">匹配游戏</span>
+                            </div>
+                            <div class="level-status">
+                                <span class="status-icon locked">🔒</span>
+                            </div>
+                        </div>
+                        <div class="level-card locked" data-level="5">
+                            <div class="level-num">05</div>
+                            <div class="level-info">
+                                <h4>原料大收集</h4>
+                                <p>胶片原料知多少</p>
+                                <span class="level-tag">打地鼠</span>
+                            </div>
+                            <div class="level-status">
+                                <span class="status-icon locked">🔒</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-reward">
+                        <div class="section-sparks" id="sparks-2"></div>
+                        <div class="reward-badge" id="reward-badge-2">
+                            <span class="reward-icon">🔧</span>
+                            <span class="reward-name">匠心探客</span>
+                        </div>
+                        <p class="reward-desc">集齐3枚徽章解锁</p>
+                        <div class="section-level-badges" style="margin-top:10px; display:flex; justify-content:center; gap:10px;">
+                            <span style="font-size:1.5rem; opacity:0.3;" id="s2-badge-1">🥇</span>
+                            <span style="font-size:1.5rem; opacity:0.3;" id="s2-badge-2">🏭</span>
+                            <span style="font-size:1.5rem; opacity:0.3;" id="s2-badge-3">🧪</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 板块三 -->
+                <section id="section-3" class="section locked-section">
+                    <div class="section-banner banner-3">
+                        <div class="banner-overlay">
+                            <h2>第三板块</h2>
+                            <h3>智慧工厂 · 挑战闯关</h3>
+                            <p>📍 第二馆（设备展区）</p>
+                        </div>
+                        <div class="section-lock">🔒 需完成板块二</div>
+                    </div>
+                    <div class="level-list">
+                        <div class="level-card locked" data-level="6">
+                            <div class="level-num">06</div>
+                            <div class="level-info">
+                                <h4>拼图大师</h4>
+                                <p>复原老厂区照片</p>
+                                <span class="level-tag">拼图游戏</span>
+                            </div>
+                            <div class="level-status">
+                                <span class="status-icon locked">🔒</span>
+                            </div>
+                        </div>
+                        <div class="level-card locked" data-level="7">
+                            <div class="level-num">07</div>
+                            <div class="level-info">
+                                <h4>化学魔法师</h4>
+                                <p>感光化学的奥秘</p>
+                                <span class="level-tag">连线配对</span>
+                            </div>
+                            <div class="level-status">
+                                <span class="status-icon locked">🔒</span>
+                            </div>
+                        </div>
+                        <div class="level-card locked" data-level="8">
+                            <div class="level-num">08</div>
+                            <div class="level-info">
+                                <h4>效率大师</h4>
+                                <p>设备进化七十年</p>
+                                <span class="level-tag">排序游戏</span>
+                            </div>
+                            <div class="level-status">
+                                <span class="status-icon locked">🔒</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-reward">
+                        <div class="section-sparks" id="sparks-3"></div>
+                        <div class="reward-badge" id="reward-badge-3">
+                            <span class="reward-icon">⚙️</span>
+                            <span class="reward-name">工业达人</span>
+                        </div>
+                        <p class="reward-desc">集齐3枚徽章解锁</p>
+                        <div class="section-level-badges" style="margin-top:10px; display:flex; justify-content:center; gap:10px;">
+                            <span style="font-size:1.5rem; opacity:0.3;" id="s3-badge-1">🧩</span>
+                            <span style="font-size:1.5rem; opacity:0.3;" id="s3-badge-2">⚗️</span>
+                            <span style="font-size:1.5rem; opacity:0.3;" id="s3-badge-3">⚡</span>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- 底部导航 -->
+            <nav class="bottom-nav">
+                <div class="nav-item active" data-section="1">
+                    <span class="nav-icon">🔥</span>
+                    <span class="nav-text">板块一</span>
+                </div>
+                <div class="nav-item locked" data-section="2">
+                    <span class="nav-icon">🔧</span>
+                    <span class="nav-text">板块二</span>
+                </div>
+                <div class="nav-item locked" data-section="3">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-text">板块三</span>
+                </div>
+                <div class="nav-item" id="nav-certificate">
+                    <span class="nav-icon">📜</span>
+                    <span class="nav-text">证书</span>
+                </div>
+            </nav>
+        </div>
+
+        <!-- 关卡弹窗容器 -->
+        <div id="level-modal" class="modal">
+            <div class="modal-content" id="modal-content">
+            </div>
+        </div>
+
+        <!-- 徽章获得弹窗 -->
+        <div id="badge-modal" class="modal badge-modal">
+            <div class="badge-modal-content">
+                <div class="badge-glow"></div>
+                <div class="badge-big" id="badge-big-icon">🏅</div>
+                <h3 class="badge-modal-title">获得称号</h3>
+                <p class="badge-modal-name" id="badge-modal-name">重走创业路</p>
+                <div class="badge-modal-fragment" id="badge-modal-fragment">
+                    <span class="fragment-icon" id="badge-fragment-icon">🔬</span>
+                    <span class="fragment-label">收集到</span>
+                    <span class="fragment-name" id="badge-fragment-name">实验室碎片</span>
+                </div>
+                <button class="stamp-btn small" id="badge-modal-close">
+                    <span class="stamp-text" id="badge-modal-btn-text">继续探索</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 彩蛋弹窗 -->
+        <div id="easter-modal" class="modal easter-modal">
+            <div class="easter-content">
+                <div class="easter-stars">✨</div>
+                <h3 id="easter-title">隐藏彩蛋！</h3>
+                <p id="easter-desc">你触发了一个惊喜！</p>
+                <button class="stamp-btn small" id="easter-close">
+                    <span class="stamp-text">太棒了</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 日记弹窗 -->
+        <div id="diary-modal" class="modal diary-modal">
+            <div class="diary-content">
+                <div class="diary-header">
+                    <span class="diary-icon">📖</span>
+                    <h3>林希之日记</h3>
+                </div>
+                <div class="diary-date" id="diary-date">1949年6月2日 · 深夜</div>
+                <div class="diary-body">
+                    <p id="diary-content">今晚，中国第一张原始氯素照相纸诞生了！虽然只是薄薄一片，但它承载的，是整个民族的希望。</p>
+                    <p class="diary-signature" id="diary-author">—— 林希之</p>
+                </div>
+                <div class="diary-actions">
+                    <button class="diary-btn" id="diary-play">
+                        <span>🔊</span> 朗读日记
+                    </button>
+                    <button class="stamp-btn small" id="diary-close">
+                        <span class="stamp-text">继续探索</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 最终彩蛋弹窗 -->
+        <div id="final-easter-modal" class="modal final-easter-modal">
+            <div class="final-easter-content">
+                <div class="final-easter-glow"></div>
+                <div class="final-easter-icon">🔍</div>
+                <h3 id="final-easter-title">林希之的秘密</h3>
+                <p id="final-easter-desc">所有板块都完成了！但林希之还有一个秘密，藏在这座博物馆的角落里。</p>
+                <div class="final-easter-clue">
+                    <span class="clue-label">💡 线索</span>
+                    <p id="final-easter-clue-text">博物馆出口附近公元厂年表展板，在楼梯拐角处。</p>
+                </div>
+                <div class="final-easter-actions">
+                    <button class="final-easter-btn" id="final-easter-found">
+                        ✅ 我找到了
+                    </button>
+                    <button class="stamp-btn small" id="final-easter-close">
+                        <span class="stamp-text">稍后再找</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 最终彩蛋结果弹窗 -->
+        <div id="final-result-modal" class="modal final-result-modal">
+            <div class="final-result-content">
+                <div class="final-result-badge" id="final-result-icon">🏆</div>
+                <h3 id="final-result-title">工业探秘者</h3>
+                <p id="final-result-text">可前往服务台揭晓答案。</p>
+                <button class="stamp-btn small" id="final-result-close">
+                    <span class="stamp-text">太棒了</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 小助手 -->
+        <div id="assistant" class="assistant">
+            <div class="assistant-bubble" id="assistant-bubble">
+                <p id="assistant-text">你好呀，我是公元小灵！</p>
+            </div>
+            <button class="assistant-mute-btn" id="assistant-mute-btn" title="静音">🔊</button>
+            <div class="assistant-avatar" id="assistant-avatar">
+                <span class="avatar-face">🧙</span>
+                <span class="avatar-ring"></span>
+            </div>
+        </div>
+
+        <!-- 证书页 -->
+        <div id="certificate-page" class="page">
+            <div class="certificate-container" id="certificate-container">
+                <div class="certificate-border">
+                    <div class="certificate-inner">
+                        <div class="cert-header">
+                            <h2>荣誉证书</h2>
+                            <div class="cert-subtitle">CERTIFICATE OF ACHIEVEMENT</div>
+                        </div>
+                        <div class="cert-body">
+                            <p class="cert-text">兹证明</p>
+                            <p class="cert-name" id="cert-name">探秘者</p>
+                            <p class="cert-text">
+                                在汕头工业博物馆<br>
+                                "公元感光工业探秘"活动中<br>
+                                成功完成全部关卡挑战
+                            </p>
+                            <div class="cert-badges" id="cert-badges">
+                                <span style="opacity:0.3;">🚶</span><span style="opacity:0.3;">💡</span><span style="opacity:0.3;">🥇</span><span style="opacity:0.3;">🏭</span><span style="opacity:0.3;">🧪</span><span style="opacity:0.3;">🧩</span><span style="opacity:0.3;">⚗️</span><span style="opacity:0.3;">⚡</span>
+                            </div>
+                            <p class="cert-title">荣获<span class="highlight">"汕头工业探秘者"</span>称号</p>
+                        </div>
+                        <div class="cert-footer">
+                            <div class="cert-seal">
+                                <div class="seal-text">汕头工业博物馆</div>
+                                <div class="seal-date" id="cert-date">2026年7月</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="cert-souvenir">可保存本证书前往服务台领取实体纪念品一份！</p>
+            </div>
+            <div class="cert-actions">
+                <button class="stamp-btn" id="save-cert-btn">
+                    <span class="stamp-text">保存证书</span>
+                </button>
+                <button class="stamp-btn outline" id="back-to-game-btn">
+                    <span class="stamp-text">返回游戏</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/assistant.js"></script>
+    <script src="js/levels/level1.js"></script>
+    <script src="js/levels/level2.js"></script>
+    <script src="js/levels/level3.js"></script>
+    <script src="js/levels/level4.js"></script>
+    <script src="js/levels/level5.js"></script>
+    <script src="js/levels/level6.js"></script>
+    <script src="js/levels/level7.js"></script>
+    <script src="js/levels/level8.js"></script>
+    <script src="js/certificate.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
